@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌐 Project: DevNotes – Personal Notes App
 
-## Getting Started
+A full-stack Next.js app where users can sign up, log in, and **create private notes**. It covers** authentication, API routes, CRUD operations, and MongoDB integration**.
 
-First, run the development server:
+## 🔧 Features:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- User registration and login (JWT-based)
+- Create, read, update, and delete (CRUD) personal notes
+- Protected routes (only logged-in users can see their notes)
+- Responsive UI using Tailwind CSS
+- MongoDB for storing users and notes
+- Simple dashboard for managing notes
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧰 Tech Stack:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Next.js (Frontend + API routes)
+- Tailwind CSS (Styling)
+- MongoDB + Mongoose (Database)
+- JWT (Authentication)
+- Bcrypt (Password hashing)
+- Axios (Frontend API calls)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧠 Key Concepts:
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- How to use **Next.js API routes** as backend endpoints
+- JWT-based **authentication** with secure password handling
+- CRUD operations with MongoDB using Mongoose
+- Using **middleware** in API routes (e.g., JWT verification)
+- Working with protected client-side pages
+- Managing global state or context (optional)
