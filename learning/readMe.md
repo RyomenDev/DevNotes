@@ -74,3 +74,54 @@ pages/contact.js → it will be served at yourdomain.com/contact
 | Component rendering starts from | `ReactDOM.render(...)` | Handled by Next.js automatically   |
 
 ---
+
+while diving into Next.js! When you see files like layout.js and page.js inside src/app, you're working with Next.js 13+ which uses the new App Router (instead of the older Pages Router). Here's a simple explanation of those files:
+
+### 📁 src/app/ – The New App Directory
+
+This is the new way to define routes and layouts in Next.js 13+ using the App Router. Each folder inside app/ becomes a route segment.
+
+### 🧩 layout.js
+
+- Defines a shared layout (like a template) for your pages.
+- It wraps around all the content in the folder.
+- Good for things like navbar, sidebar, footer, etc.
+
+Example:
+
+```js
+export default function RootLayout({ children }) {
+  return (
+    <html>
+      <body>
+        <Navbar />
+        {children}
+      </body>
+    </html>
+  );
+}
+```
+
+### 📄 page.js
+
+- Defines the actual page content for that route.
+- This is the component that renders when you visit that route.
+
+Example:
+
+```js
+export default function HomePage() {
+  return <h1>Welcome to the Home Page</h1>;
+}
+```
+
+### 🧠 Quick Summary:
+
+| File        | Purpose                                   |
+| ----------- | ----------------------------------------- |
+| `layout.js` | Reusable layout for route (like template) |
+| `page.js`   | Actual content for that route             |
+
+If you create a folder about/ under app/ and add page.js inside it, it becomes the route /about.
+
+---

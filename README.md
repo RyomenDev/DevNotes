@@ -76,3 +76,39 @@ A full-stack Next.js app where users can sign up, log in, and **create private n
 - Frontend: Vercel
 - Database: MongoDB Atlas
 - Use render.com for backend
+
+## 📁 Final Ideal Folder Structure
+
+```
+src/
+├── app/
+│   ├── login/
+│   │   └── page.jsx
+│   ├── register/
+│   │   └── page.jsx
+│   ├── dashboard/
+│   │   └── page.jsx
+│   ├── api/
+│   │   ├── auth/
+│   │   │   ├── login/route.js
+│   │   │   └── register/route.js
+│   │   └── notes/
+│   │       ├── route.js
+│   │       └── [id]/route.js
+│   ├── layout.js
+│   └── page.js
+│
+├── components/
+│   ├── Navbar.jsx
+│   ├── Form.jsx
+│   └── NoteCard.jsx
+│
+├── models/
+│   ├── User.js
+│   └── Note.js
+│
+├── lib/
+│   ├── mongodb.js
+│   └── auth.js
+│── middleware.js
+```
