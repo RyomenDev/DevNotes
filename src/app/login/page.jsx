@@ -12,7 +12,32 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Login Data:", form);
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        console.error("Login failed:", data.error);
+        alert(data.error); // Optional: show error to user
+        return;
+      }
+
+      // Save token (example: in localStorage or cookie)
+      localStorage.setItem("token", data.token);
+
+      console.log("Login successful");
+      // Redirect or update UI
+      // router.push("/dashboard") or similar
+    } catch (err) {
+      console.error("Login error:", err);
+    }
   };
 
   return (

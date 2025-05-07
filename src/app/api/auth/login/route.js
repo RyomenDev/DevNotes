@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
-  console.log("Connecting db");
+  //   console.log("Connecting db");
 
   await connectDB();
 

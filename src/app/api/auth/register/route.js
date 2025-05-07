@@ -3,7 +3,7 @@ import User from "@/models/User";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
-  console.log("Connecting db");
+//   console.log("Connecting db");
   await connectDB();
   const { username, email, password } = await req.json();
   //   console.log({ username, email, password });
