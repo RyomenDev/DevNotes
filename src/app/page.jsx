@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
@@ -48,6 +48,22 @@ const initialNotes = [
   {
     id: "3",
     title: "Shopping List",
+    content: "- Milk\n- Eggs\n- Bread\n- Fruits",
+    priority: "low",
+    category: "Personal",
+    date: new Date(2023, 4, 5).toISOString(),
+  },
+  {
+    id: "4",
+    title: "Shopping List-2",
+    content: "- Milk\n- Eggs\n- Bread\n- Fruits",
+    priority: "low",
+    category: "Personal",
+    date: new Date(2023, 4, 5).toISOString(),
+  },
+  {
+    id: "5",
+    title: "Shopping List-3",
     content: "- Milk\n- Eggs\n- Bread\n- Fruits",
     priority: "low",
     category: "Personal",

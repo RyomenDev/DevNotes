@@ -15,7 +15,9 @@ const Header = ({ logout }) => {
     <header className="border-b bg-white sticky top-0 z-10">
       <div className="container mx-auto py-4 px-4 flex items-center justify-between">
         <div className="flex items-center">
-          <h1 className="text-xl font-bold text-memo-blue mr-2">Memo Board</h1>
+          <h1 className="text-xl font-bold text-memo-blue mr-2 border-4 bg-red-400">
+            Memo Board
+          </h1>
         </div>
 
         <div className="flex items-center gap-4">
