@@ -17,9 +17,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { format } from "date-fns";
-import { Edit, Trash2 } from "lucide-react";
+import { Edit, Trash2, GripVertical } from "lucide-react";
 
-const NoteCard = ({ note, onDelete, onEdit }) => {
+const NoteCard = ({ note, onDelete, onEdit, dragListeners }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [editedNote, setEditedNote] = useState({ ...note });
 
@@ -42,34 +42,48 @@ const NoteCard = ({ note, onDelete, onEdit }) => {
         } flex flex-col h-full`}
       >
         <div className="flex justify-between items-start mb-2">
-          <h3 className="font-medium text-lg">{note.title}</h3>
+          <div className="flex items-center gap-2">
+            <h3 className="font-medium text-lg">{note.title}</h3>
+            <div className="cursor-grab" {...dragListeners}>
+              <GripVertical className="h-4 w-4 text-muted-foreground" />
+            </div>
+          </div>
           <div className="flex gap-1">
             <Button
               variant="ghost"
               size="icon"
-              className="h-6 w-6"
-              onClick={() => setIsDialogOpen(true)}
+              className="h-6 w-6 z-50"
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsDialogOpen(true);
+              }}
             >
               <Edit className="h-4 w-4" />
             </Button>
             <Button
               variant="ghost"
               size="icon"
-              className="h-6 w-6 text-destructive"
-              onClick={() => onDelete(note.id)}
+              className="h-6 w-6 text-destructive z-50"
+              onClick={(e) => {
+                e.stopPropagation();
+                onDelete(note.id);
+              }}
             >
               <Trash2 className="h-4 w-4" />
             </Button>
           </div>
         </div>
 
-        <div className="flex-grow mb-3">
+        <div className="flex-grow mb-3 cursor-grab" {...dragListeners}>
           <p className="text-sm text-gray-600 whitespace-pre-wrap">
             {note.content}
           </p>
         </div>
 
-        <div className="flex justify-between items-center mt-auto pt-2 text-xs text-gray-500">
+        <div
+          className="flex justify-between items-center mt-auto pt-2 text-xs text-gray-500 cursor-grab"
+          {...dragListeners}
+        >
           <div className="bg-secondary px-2 py-1 rounded">{note.category}</div>
           <div>{format(new Date(note.date), "MMM dd, yyyy")}</div>
         </div>
@@ -91,7 +105,6 @@ const NoteCard = ({ note, onDelete, onEdit }) => {
                 onChange={(e) =>
                   setEditedNote({ ...editedNote, title: e.target.value })
                 }
-                className="w-full"
               />
             </div>
 

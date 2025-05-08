@@ -82,14 +82,13 @@ const SortableNote = ({ note, onDelete, onEdit }) => {
   };
 
   return (
-    <div
-      ref={setNodeRef}
-      style={style}
-      {...attributes}
-      {...listeners}
-      className="h-full"
-    >
-      <NoteCard note={note} onDelete={onDelete} onEdit={onEdit} />
+    <div ref={setNodeRef} style={style} {...attributes} className="h-full">
+      <NoteCard
+        note={note}
+        onDelete={onDelete}
+        onEdit={onEdit}
+        dragListeners={listeners} // only drag icon listens
+      />
     </div>
   );
 };
@@ -149,11 +148,14 @@ const HomePage = ({ logout }) => {
   };
 
   const handleDeleteNote = (id) => {
+    // console.log("Deleting note with id:", id);
     setNotes(notes.filter((note) => note.id !== id));
     toast.success("Note deleted");
   };
 
   const handleEditNote = (editedNote) => {
+    // console.log("OnEdit: ", editedNote);
+
     setNotes(
       notes.map((note) => (note.id === editedNote.id ? editedNote : note))
     );
